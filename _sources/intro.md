@@ -1,6 +1,9 @@
 # Welcome to your Jupyter Book
 
 **This is a test, Daniel Sage**
+---
+This is the version 0
+
 
 This is a small sample book to give you a feel for how book content is
 structured.

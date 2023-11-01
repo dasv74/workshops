@@ -340,7 +340,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -356,6 +358,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-is-a-test-daniel-sage"><strong>This is a test, Daniel Sage</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -367,7 +377,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
 <h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this heading">#</a></h1>
-<p><strong>This is a test, Daniel Sage</strong></p>
+<section id="this-is-a-test-daniel-sage">
+<h2><strong>This is a test, Daniel Sage</strong><a class="headerlink" href="#this-is-a-test-daniel-sage" title="Permalink to this heading">#</a></h2>
+<p>This is the version 0</p>
 <p>This is a small sample book to give you a feel for how book content is
 structured.
 It shows off a few of the major file types, as well as some sample content.
@@ -380,6 +392,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,6 +440,20 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-is-a-test-daniel-sage"><strong>This is a test, Daniel Sage</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
