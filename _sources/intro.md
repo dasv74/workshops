@@ -2,7 +2,7 @@
 
 **This is a test, Daniel Sage**
 ---
-This is the version 2
+This is the version 3
 
 
 This is a small sample book to give you a feel for how book content is
