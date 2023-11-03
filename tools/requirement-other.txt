@@ -1,0 +1,13 @@
+conda install -c apple tensorflow-deps
+pip install tensorflow-macos
+pip install tensorflow-metal
+
+pip install pandas
+pip install scikit-image
+pip install scikit-learn
+pip install matplotlib 
+pip install fpdf
+pip install ipywidgets
+pip install tqdm
+pip install "bioimageio.core>=0.5,<0.6"
+
