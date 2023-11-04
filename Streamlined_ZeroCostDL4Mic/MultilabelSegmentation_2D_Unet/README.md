@@ -1,3 +1,1 @@
-## Workshops Multilabel Semantic Segmentation
-
-*Written by Daniel Sage*
+Visit https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki
