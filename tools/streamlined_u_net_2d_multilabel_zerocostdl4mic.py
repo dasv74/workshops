@@ -1,18 +1,20 @@
 Root = "datasets/"
-DatasetName = "simulation-3K-10im"
+DatasetName = "ctc-glioblastoma-66im"
 labels = 3
-number_of_epochs =  5
+number_of_epochs =  100
 data_aug = 1
 verbose = False
 
-Training_source = Root + DatasetName + "/train/sources"
-Training_target = Root + DatasetName + "/train/labels"
-Source_QC_folder = Root + DatasetName + "/test/sources"
-Target_QC_folder = Root + DatasetName + "/test/labels"
+sourceName = "sources"
+targetName = "objects"
+Training_source = Root + DatasetName + "/train/" + sourceName
+Training_target = Root + DatasetName + "/train/" + targetName
+Source_QC_folder = Root + DatasetName + "/test/" + sourceName
+Target_QC_folder = Root + DatasetName + "/test/" + targetName
 
 model_name = f'model-{DatasetName}-{labels}K-{number_of_epochs}E-{data_aug}DA'
 model_path = 'models'
-fiji_path = '/Users/dsage/Desktop/Fiji.app/models/'
+fiji_path = '/Users/sage/Desktop/Fiji.app/models/'
 
 # Bioimage Model Zoo
 Trained_model_name    = f"Semantic-Segmentation-{model_name}"
@@ -1268,10 +1270,10 @@ if os.path.exists(fiji_output) == False:
 shutil.unpack_archive(output_path, fiji_output)
 
 # Keep a track of this experiment
-results_experiment = f'{DatasetName}, {number_of_epochs}, {results_final_mean:3.3f}, {results_final_sdev:3.3f}, {dt}, {number_of_training_dataset}'
+results_experiment = f'{DatasetName}, {sourceName}, {targetName}, {labels}, {number_of_epochs}, {results_final_mean:3.3f}, {results_final_sdev:3.3f}, {dt}, {number_of_training_dataset}'
 print()
 print('================================================================================================')
-print(f'DatasetName, Epochs, Mean, Sdev, Time\n')
+print(f'DatasetName, Source, Target, Class, Epochs, Mean, Sdev, Time\n')
 print(results_experiment + '\n')
 print('================================================================================================')
 f = open('results_experiments.csv','a+')
