@@ -1,0 +1,69 @@
+attachments:
+  files: [training_evaluation.csv, per_sample_scale_range.ijm, Contours2InstanceSegmentation.ijm]
+authors:
+- {affiliation: Author affiliation, name: Author 1 name}
+- {affiliation: ' Author 2 affiliation', name: ' Author 2 name'}
+cite:
+- {doi: 'https://doi.org/10.1038/s41592-018-0261-2', text: Falk et al. Nature Methods
+    2019}
+- {doi: 'https://doi.org/10.1007/978-3-319-24574-4_28', text: Ronneberger et al. arXiv
+    in 2015}
+- {doi: 'https://doi.org/10.1101/2020.03.20.000133', text: Lucas von Chamier et al.
+    biorXiv 2020}
+config:
+  deepimagej:
+    allow_tiling: true
+    model_keys: null
+    prediction:
+      postprocess:
+      - {spec: null}
+      preprocess:
+      - {kwargs: per_sample_scale_range.ijm, spec: 'ij.IJ::runMacroFile'}
+    pyramidal_model: false
+    test_information:
+      inputs:
+      - name: test_input.npy
+        pixel_size: {x: 1, y: 1, z: 1.0}
+        size: 512 x 512 x 1 x 1
+      memory_peak: null
+      outputs:
+      - {name: test_output.npy, size: 512 x 512 x 1 x 2, type: image}
+      runtime: null
+covers: [cover.png]
+description: ''
+documentation: README.md
+format_version: 0.4.9
+inputs:
+- axes: bxyc
+  data_range: [0.0, 255.0]
+  data_type: uint8
+  name: serving_default_input_1
+  preprocessing:
+  - kwargs: {axes: xyc, max_percentile: 99.8, min_percentile: 1, mode: per_sample}
+    name: scale_range
+  shape: [1, 512, 512, 1]
+license: MIT
+links: [deepimagej/deepimagej]
+name: Glio_50E_66im
+outputs:
+- axes: bxyc
+  data_range: [-.inf, .inf]
+  data_type: float32
+  name: StatefulPartitionedCall
+  shape:
+    offset: [0.0, 0.0, 0.0, 0.0]
+    reference_tensor: serving_default_input_1
+    scale: [1.0, 1.0, 1.0, 3.0]
+sample_inputs: [sample_input_0.tif]
+sample_outputs: [sample_output_0.tif]
+tags: [zerocostdl4mic, deepimagej, segmentation, tem, unet]
+test_inputs: [test_input.npy]
+test_outputs: [test_output.npy]
+timestamp: '2023-11-11T14:21:03.553539'
+training_data: {id: ''}
+type: model
+weights:
+  keras_hdf5: {sha256: 4025bcac511c4f58273b2f2cc6d4ae6f84ea87f3e607e56f54d63cd81721a46f,
+    source: keras_weights.hdf5, tensorflow_version: 2.8.0}
+  tensorflow_saved_model_bundle: {sha256: 29e3cbec57f14e966963be54378741e9e6fef958ac2b7f897d23078056f1b501,
+    source: tf_weights.zip, tensorflow_version: 2.8.0}
